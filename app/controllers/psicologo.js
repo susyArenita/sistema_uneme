@@ -204,13 +204,13 @@ exports.registroEgresos = (req, res) => {
             console.log(err);
           }else{
             //var ventana;
-            open('app/assets/instrumentos/CARTA DE EGRESO VOLUNTARIO.pdf', (err) => {
+            //open('app/assets/instrumentos/CARTA DE EGRESO VOLUNTARIO.pdf', (err) => {
               if(err){
                 console.log(err);
               }else{
                 res.redirect('/tratamientoPrincipal');
               }
-            });
+            //});
             //ventana = window.open('/../instrumentos/CARTA DE EGRESO VOLUNTARIO.pdf');
             //res.render("window.open('/../instrumentos/CARTA DE EGRESO VOLUNTARIO.pdf')");
           }
