@@ -11,7 +11,7 @@ exports.APIBuscarExpediente_Consultas = function(req, res){
 
 
 exports.APIBuscarConsultas = function(req, res){
-            db.query("select idAgenda, date_format(FechaAgendaCitas,'%e/%m/%Y') as FechaAgenda, HoraAgendaCitas, AreaAgendaCitas, ObservacionesAgendaCitas, idPaciente, NumeroExpediente, StatusExpediente from agendacitas, paciente, expediente where agendacitas.Paciente_idPaciente=paciente.idPaciente and paciente.idPaciente=expediente.Paciente_idPaciente and FechaAgendaCitas>=CURDATE() and FechaAgendaCitas=NOW() and StatusExpediente='Activo' and NumeroExpediente=?;", [req.params.expediente], function(err, rows){
+            db.query("select idAgenda, date_format(FechaAgendaCitas,'%e/%m/%Y') as FechaAgenda, HoraAgendaCitas, AreaAgendaCitas, ObservacionesAgendaCitas, idPaciente, NumeroExpediente, StatusExpediente from agendacitas, paciente, expediente where agendacitas.Paciente_idPaciente=paciente.idPaciente and paciente.idPaciente=expediente.Paciente_idPaciente and FechaAgendaCitas>=CURDATE() and StatusExpediente='Activo' and NumeroExpediente=?;", [req.params.expediente], function(err, rows){
               var citaspaciente = JSON.parse(JSON.stringify(rows));
               res.status(200).json(citaspaciente);
               console.log(citaspaciente);
